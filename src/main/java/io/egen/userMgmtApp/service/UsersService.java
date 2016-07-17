@@ -10,7 +10,7 @@ import io.egen.userMgmtApp.exception.UserAlreadyExistsException;
 public interface UsersService  {
 	
 	Users createUser(Users users) throws UserAlreadyExistsException;
-	
+		
 	List<Users> findAllUsers();
 	
 	Users findUserById(String id) throws UserNotFoundException;

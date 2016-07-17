@@ -8,6 +8,8 @@ public interface UsersDao {
 	
 	public Users findUserById(String id);
 	
+	public Users findUserByInfo(Users user);
+	
 	public Users createUser(Users users);
 	
 	public List<Users> findAllUsers();

@@ -22,7 +22,17 @@ public class UsersServiceImpl implements UsersService{
 	@Override
 	public Users createUser(Users users) throws UserAlreadyExistsException {
 		
-		return dao.createUser(users);
+		Users exists = dao.findUserByInfo(users);
+		
+		if(exists == null){
+			
+			return dao.createUser(users);
+		}
+		
+		else{
+			
+				throw new UserAlreadyExistsException();
+		}	
 	}
 
 	@Override
@@ -72,5 +82,7 @@ public class UsersServiceImpl implements UsersService{
 		return dao.findAllUsers();
 		
 	}
+
+
 
 }

@@ -157,15 +157,7 @@ public class UserControllerTest {
 	        result.andExpect(MockMvcResultMatchers.status().isOk());
 	}
 	
-	@SuppressWarnings("unchecked")
-	@Test(expected=org.mockito.exceptions.verification.junit.ArgumentsAreDifferent.class)
-	public void updateUserExceptionTest() throws Exception {
-		
-		Mockito.when(service.findUserById(user.getId())).thenThrow(UserNotFoundException.class);
-		mockmvc.perform(MockMvcRequestBuilders.put("/users/lolsada",user)).andExpect(MockMvcResultMatchers.status().isOk());
-		Mockito.verify(service).updateUser(user.getId(),user);
-		
-	}
+
 	
 	@Test
 	public void deleteUserTest() throws Exception{

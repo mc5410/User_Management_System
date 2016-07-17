@@ -1,4 +1,4 @@
-
+/** This call is made when the document is loaded and lists all the users in the table**/
 $(document).ready(function() {
     
 		$.ajax({

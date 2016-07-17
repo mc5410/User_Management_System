@@ -76,6 +76,7 @@ public class UserDaoTest {
 	@Test
 	public void createUserTest(){
 		
+		Mockito.when(em.find(Users.class, user.getId())).thenReturn(user);
 		dao.createUser(user);
 		Mockito.verify(em).persist(user);
 	}

@@ -4,12 +4,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="table_usr")
+@NamedQueries ({
+	@NamedQuery(name="Users.findUserByInfo", query="SELECT u FROM Users u WHERE u.firstName = :firstName AND u.middleName = :middleName AND u.lastName = :lastName ")
+})
 public class Users {
 	
 	@Id

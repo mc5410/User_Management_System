@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -52,6 +53,22 @@ public class UsersDaoImpl implements UsersDao{
 		em.remove(user);
 		
 		
+	}
+
+	@Override
+	public Users findUserByInfo(Users user) {
+			
+		TypedQuery<Users> qlString = em.createNamedQuery("Users.findUserByInfo", Users.class);
+		qlString.setParameter("firstName", user.getFirstName());
+		qlString.setParameter("middleName", user.getMiddleName());
+		qlString.setParameter("lastName", user.getLastName());
+		
+		List<Users> users = qlString.getResultList();
+		if ( users != null && users.size() == 1 ) {
+			return users.get(0);
+		} else {
+			return null;
+		}
 	}
 
 }

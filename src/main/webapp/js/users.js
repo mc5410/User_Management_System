@@ -1,5 +1,5 @@
 
-
+/** validate function is to validate the numbers**/
 function validate(evt) {
 	  var theEvent = evt || window.event;
 	  var key = theEvent.keyCode || theEvent.which;
@@ -11,14 +11,19 @@ function validate(evt) {
 	  }
 	}
 
+/** All the functions are loaded when the document  is loaded**/
     $(document).ready(function() {
 
+    	/** drop down options of the age field**/
     	$(function(){
     	    var $select = $(".dropdwn");
     	    for (i=1;i<=100;i++){
     	        $select.append($('<option></option>').val(i).html(i))
     	    }
     	});
+    	
+    	/** This is to gather all the information from the 
+    	 * form and load it into the variable data **/
     	
 		$('.form-validation').submit(function(e) {
 			var frm = $('.form-validation');
@@ -46,7 +51,7 @@ function validate(evt) {
 		    
 		   
 		    
-    	
+    /** AJAX call is made to contact the REST API and receive the response  **/	
         $.ajax({
             beforeSend: function (xhr){ 
             	  xhr.setRequestHeader("Content-Type","application/json; charset=utf-8");
@@ -60,12 +65,12 @@ function validate(evt) {
             success : function(callback){
             	
             	window.location = "users.jsp";
-            	alert("success");
+            	alert("User Added");
                 $(this).html("User Added");
                 
             },
             error : function(callback){
-            	console.log(callback);
+            	alert("A User with this information already exists");
                 $(this).html("Error!");
             }
         });
@@ -76,6 +81,7 @@ function validate(evt) {
     
     
     
+  /** This function checks for validation in the name fields**/
     
 	$('.form-validation').keyup(function(e) {
 
