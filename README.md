@@ -40,6 +40,19 @@
  	These services can be used from POSTMAN or else I've only had time to make
  	the front-end for the services addUser, getAllUsers using JQuery and AJAX in
  	Java Server Page.
+
+## Unit Testing
+
+----
+
+	Almost all the test cases are covered in the unit testing for the only entity
+	user.
+	
+	Testing was done for the following:
+	
+	1. UsersController
+	2. UsersDaoImpl
+	3. UsersServiceImpl
  
  
 
